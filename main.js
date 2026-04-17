@@ -84,13 +84,27 @@ function displayWord(data) {
 function displaysavedWords() {
   const savedWordsList = document.getElementById("saved-words-list");
   savedWordsList.innerHTML = "";
+  
   const savedWords = JSON.parse(localStorage.getItem("savedWords")) || [];
+
+  if (savedWords.length > 0) {
+    const clearBtn = document.createElement("button");
+    clearBtn.textContent = "Clear All";
+    clearBtn.onclick = () => {
+      localStorage.removeItem("savedWords");
+      displaysavedWords(); 
+    };
+    savedWordsList.appendChild(clearBtn);
+  }
+
+  // 2. Display the list
   savedWords.forEach(word => {
     const li = document.createElement("li");
     li.textContent = word;
     savedWordsList.appendChild(li);
   });
 }
+
 
 window.onload = function() {
   displaysavedWords();
