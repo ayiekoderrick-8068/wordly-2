@@ -97,7 +97,6 @@ function displaysavedWords() {
     savedWordsList.appendChild(clearBtn);
   }
 
-  // 2. Display the list
   savedWords.forEach(word => {
     const li = document.createElement("li");
     li.textContent = word;
