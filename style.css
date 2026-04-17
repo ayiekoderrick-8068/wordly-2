@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    background-image: url('https://media.istockphoto.com/id/1358084580/photo/vintage-picture-frame.jpg?s=612x612&w=0&k=20&c=nUZzLIIgM4MaieFe6ccJ-E-MJ-Q9j4xDo2FFOiXGPQY=');
+    background-size: auto 100%;
+    background-position: center;
+    background-attachment: fixed;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #e81ab8;
+}
+
+.container p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 15px;
+    border: 1px solid #f008be;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1a73e8;
+}
+
+button {
+    padding: 15px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #155ab6;
+}
+
+#error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9fafc;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+#result h2 {
+    margin-bottom: 15px;
+    color: #e81a7a;
+}
+
+#result p {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#audio-player {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
