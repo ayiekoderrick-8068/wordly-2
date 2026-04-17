@@ -50,10 +50,12 @@ function displayWord(data) {
   const synonyms = meaning.definitions[0].synonyms || [];
   const partOfSpeech = meaning.partOfSpeech || "Not applicable";
 
+  document.getElementById("word-title").textContent = word;
+  document.getElementById("phonetic").textContent = "Pronunciation: " + phonetic;
   partOfSpeechElement.textContent = "Type: " + partOfSpeech;
   definitionElement.textContent = "Definition: " + definition;
   exampleElement.textContent = "Example: " + example;
-
+  synonymsElement.textContent = synonyms.length ? "Synonyms: " + synonyms.join(", ") : "";
 
   if (data.phonetics && data.phonetics[0] && data.phonetics[0].audio) {
     audioPlayer.src = data.phonetics[0].audio;
@@ -75,16 +77,25 @@ function displayWord(data) {
     } else {
       alert(`"${word}" is already in your favorites!`);
     }
+    displaysavedWords();
   }
 }
 
-// Update the DOM with the fetched information
-  document.getElementById("word-title").textContent = word;
-  document.getElementById("phonetic").textContent = "Pronunciation: " + phonetic;
-  document.getElementById("part-of-speech").textContent = "Type: " + partOfSpeech;
-  document.getElementById("definition").textContent = "Definition: " + definition;
-  document.getElementById("example").textContent = "Example: " + example;
+function displaysavedWords() {
+  const savedWordsList = document.getElementById("saved-words-list");
+  savedWordsList.innerHTML = "";
+  const savedWords = JSON.parse(localStorage.getItem("savedWords")) || [];
+  savedWords.forEach(word => {
+    const li = document.createElement("li");
+    li.textContent = word;
+    savedWordsList.appendChild(li);
+  });
+}
 
-  result.classList.remove("hidden");
+window.onload = function() {
+  displaysavedWords();
+};
+
+
 
 
